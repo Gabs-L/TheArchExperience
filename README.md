@@ -47,7 +47,7 @@ Now that I had a bootable drive ready, I could prepare my pc, in this case a thi
   ```ls /usr/share/kbd/consolefonts/``` lists available fonts to set, I used ```setfont ter-124b``` to make things bigger and easier to read but for uber high density you can try "iso08.16", if you want uber massive font, you can try "ter-v32b".  
 
 <ins>**Verifying boot mode if unsure and** [**connecting to the interwebs**](https://wiki.archlinux.org/title/Installation_guide#Connect_to_the_internet)</ins>  
-0.0 ```# cat /sys/firmware/efi/fw_platform_size``` to check the UEFI bitness. If the command returns 64, then you are 64-bit x64, if it returns 32, then you are 32-bit IA32. If "No such file or directory" then you are probably using BIOS. My system was 64 so x64.
+0.0 ```# cat /sys/firmware/efi/fw_platform_size``` to check the UEFI bitness. If the command returns 64, then you are 64-bit x64, if it returns 32, then you are 32-bit IA32. If "No such file or directory" then you are probably using BIOS. My system was 64 so x64.  
 1.0 ```ip link``` to list network interfaces. In my case, I wanted to connect to my ethernet so this is when I plug in my ethernet cable. See the above link if you you want to connect to wireless.
   Since I am connecting to le web via ethernet, no additional setup was needed. Check that the indeface state is "UP" by retyping the command.
 
