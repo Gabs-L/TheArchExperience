@@ -34,17 +34,18 @@ Now that I had a bootable drive ready, I could prepare my pc, in this case a thi
 
 <ins>**Configuring Keyboard and Console for Current Session**</ins>  
 0.0 Before anything else, here are some [handy keyboard shortcuts](https://wiki.archlinux.org/title/Linux_console#Keyboard_shortcuts) that work in the terminal.
-  ```poweroff``` shuts down the system
+  ```poweroff``` shuts down the system  
 1.0 to view available [keyboard layouts](https://wiki.archlinux.org/title/Linux_console/Keyboard_configuration), use
-  ```localectl list-keymaps```
-  to navigate, press "h" for help,  and "q" to exit.
-  select the desired keymap using
-  ```loadkeys [layout_name]``` in my case, I will use the "us" layout: ```loadkeys us```
-  Note that this keyboard layout assignment is only for the current session and is not saved, we will do that later.
-2.0 now we can set the console [font and size](https://wiki.archlinux.org/title/Linux_console#Fonts).
-  ```setfont [font_name]``` sets the console font for the current session.
-  ```showconsolefont``` shows the glyph set for the current font.
-  ```ls /usr/share/kbd/consolefonts/``` lists available fonts to set, I used ```setfont ter-124b``` to make things bigger and easier to read but for uber high density you can try "iso08.16", if you want uber massive font, you can try "ter-v32b".  
+  ```localectl list-keymaps```  
+  to navigate, press "h" for help,  and "q" to exit.  
+  select the desired keymap using  
+  ```loadkeys [layout_name]``` in my case, I will use the "us" layout: ```loadkeys us```  
+  Note that this keyboard layout assignment is only for the current session and is not saved, we will do that later.  
+2.0 now we can set the console [font and size](https://wiki.archlinux.org/title/Linux_console#Fonts).  
+  ```setfont [font_name]``` sets the console font for the current session.  
+  ```showconsolefont``` shows the glyph set for the current font.  
+  ```ls /usr/share/kbd/consolefonts/``` lists available fonts to set, I used ```setfont ter-124b``` to make things bigger and easier to read but for uber high density you can try "iso08.16",  
+  if you want uber massive font, you can try "ter-v32b".  
 
 <ins>**Verifying boot mode if unsure and** [**connecting to the interwebs**](https://wiki.archlinux.org/title/Installation_guide#Connect_to_the_internet)</ins>  
 0.0 ```# cat /sys/firmware/efi/fw_platform_size``` to check the UEFI bitness. If the command returns 64, then you are 64-bit x64, if it returns 32, then you are 32-bit IA32. If "No such file or directory" then you are probably using BIOS. My system was 64 so x64.  
