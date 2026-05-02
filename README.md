@@ -90,4 +90,77 @@ use ```lsblk``` to view partitions and their names or ```sudo fdisk -l``` if you
 mkfs.fat -F32 /dev/sda1    # make sure the name matches! Set the first (EFI partition) to FAT32
 mkfs.ext4 /dev/sda2    # set the storage (Linux root partition) to EXT4
 ```
+After formatting, mount the partitions
+```
+mount /dev/sda2 /mnt
+mkdir -p /mnt/boot
+mount /dev/sda1 /mnt/boot
+swapon /dev/swap_partition  # if you made a swap partition
+```
 
+I accidentally misnamed my "/mnt/boot" directory "/mnt/bot"
+delete directories with the following
+```
+mount | grep /mnt/bot    # check if empty
+sudo rmdir /mnt/bot    # if directry is empty
+sudo rm -r /mnt/bot    # if directory not empty and you wanna delete anyway
+```
+
+use the followign to check that directories are made as intended:
+```
+pwd
+ls /mnt
+ls /mnt/boot
+```
+
+
+PARTITTIONING DONE!
+ON TO ISNTALL BASE SYSTEM
+
+```
+pacstrap -K /mnt base linux linux-firmware
+genfstab -U /mnt >> /mnt/etc/fstab
+arch-chroot /mnt
+```
+Must be done in order
+
+Once in chroot:
+set time zone 
+``` 
+ln -sf /usr/share/zoneinfo/America/Vancouver /etc/localtime
+hwclock --systohc
+locale-gen
+echo "LANG=en_US.UTF-8" > /etc/locale.conf
+echo "KEYMAP=us" > /etc/vconsole.conf
+echo "<desiredhostname>" > /etc/hostname
+```
+also if you accidentally exit chroot, just remount boot directory and continue
+```
+mount /dev/sda2 /mnt
+mount /dev/sda1 /mnt/boot
+arch-chroot /mnt
+```
+set the password for root using 
+```
+passwd
+```
+
+configure [bootloader](https://wiki.archlinux.org/title/Arch_boot_process#Boot_loader):
+```
+ls /sys/firmware/efi  # if there are directories, then that means you booted in UEFI. You will need to install an UEFI bootloader ike GRUB
+findmnt /mnt/boot /mnt/boot/efi /mnt/efi    # find your efi mount point in case u forgot (like I did)
+lsblk -f    # alt method of identifying efi mount point. if just on sda1 (FAT32 (EFI) partition) then just use the /boot directory 
+pacman -S grub efibootmgr
+grub-install --target=x86_64-efi --efi-directory=<boot mount directory> --bootloader-id=GRUB --recheck
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB --recheck
+grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+U ARE READY FOR REBOOT NOW!?
+```
+exit
+umount -R /mnt
+reboot
+```
+
+after reboot. login with "root" and the password you set
