@@ -134,6 +134,10 @@ echo "LANG=en_US.UTF-8" > /etc/locale.conf
 echo "KEYMAP=us" > /etc/vconsole.conf
 echo "<desiredhostname>" > /etc/hostname
 ```
+
+*** I FORGOT TO CONFIGURE NETWORKING!!!***
+FIX HERE
+
 also if you accidentally exit chroot, just remount boot directory and continue
 ```
 mount /dev/sda2 /mnt
@@ -164,3 +168,19 @@ reboot
 ```
 
 after reboot. login with "root" and the password you set
+
+***SINCE I FORGOT TO CONFIGURE NETWORKING< HERE'S HOW TO FIX IT AFTER INSTALLING STUFFS***
+1. remount installation  media and boot into the usb device (or whatever media)
+2. remount and enter chroot
+3. check if internet works on there with ``` ip link```
+4. install networkmanager
+```
+pacman -S networkmanager
+systemctl enable NetworkManager
+```
+5. exit, unmount and reboot
+```
+exit
+umount -R /mnt
+reboot
+```
