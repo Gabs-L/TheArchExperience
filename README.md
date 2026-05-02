@@ -61,3 +61,33 @@ Now that I had a bootable drive ready, I could prepare my pc, in this case a thi
   EFI: 1GB
   Root: 32GB
   Swap: 8GB
+
+From Here on out I am on Macbook pro 5 (A1278 2009 so things may not be applicable, reformat later)
+```
+fdisk /dev/<disk_name>
+fdisk /dev/sda
+```
+once in fdisk, can use the following to partition/format disk
+press "m" to open help menu
+```
+g        # create a new GPT partition table
+n        # new partition
+1        # partition number 1
+         # first sector (press Enter)
++512M    # size of EFI partition
+t        # change type
+1        # choose EFI System
+n        # new partition
+2        # partition number 2
+         # first sector (press Enter)
+         # last sector (press Enter, use rest of disk)
+w        # write changes (BE SURE BEFORE WRITTING CHANGES)
+```
+if things went bad and you need to wipe the disk u were partitioning, use ```wipefs -a /dev/sdX```
+use ```lsblk``` to view partitions and their names or ```sudo fdisk -l``` if you want more detail
+
+```
+mkfs.fat -F32 /dev/sda1    # make sure the name matches! Set the first (EFI partition) to FAT32
+mkfs.ext4 /dev/sda2    # set the storage (Linux root partition) to EXT4
+```
+
