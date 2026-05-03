@@ -205,7 +205,7 @@ d
 ...
 w
 ```
-reenter fdisk
+reenter fdisk. Note may be prompted to remove vfat ssignature if there was an existing partition prior. you can overwrite it (Yes).
 ```
 lsblk
 fdisk /dev/sda
