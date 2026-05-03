@@ -195,7 +195,20 @@ timedatctl
 lsblk
 fdisk /dev/sda
 ```
+clearing partitions in disk
 ```
+p
+d
+1
+d
+2
+...
+w
+```
+reenter fdisk
+```
+lsblk
+fdisk /dev/sda
 # once in fdisk
 g
 n
