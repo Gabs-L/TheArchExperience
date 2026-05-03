@@ -184,3 +184,83 @@ exit
 umount -R /mnt
 reboot
 ```
+
+##
+On macbook pro (2009 A1278) here are the commands I used once ebooted into live install environment:
+```
+loadkeys us
+setfont ter-124b
+ip link
+timedatctl
+lsblk
+fdisk /dev/sda
+```
+```
+# once in fdisk
+g
+n
+1
+<enter>
++512M
+t
+1
+n
+2
+<enter>
+<enter>
+w
+```
+```
+mkfs.fat -F32 /dev/sda1
+mkfs.ext4 /dev/sda2
+
+mount /dev/sda2 /mnt
+mkdir -p /mnt/boot
+mount /dev/sda1 /mnt/boot
+pwd
+ls /mnt
+ls /mnt/boot
+```
+```
+pacstrap -K /mnt base linux linux-firmware
+genfstab -U /mnt >> /mnt/etc/fstab
+arch-chroot /mnt
+```
+```
+ln -sf /usr/share/zoneinfo/America/Vancouver /etc/localtime
+hwclock --systohc
+locale-gen
+echo "LANG=en_US.UTF-8" > /etc/locale.conf
+echo "KEYMAP=us" > /etc/vconsole.conf
+echo "<desiredhostname>" > /etc/hostname
+```
+```
+pacman -S networkmanager
+systemctl enable --now NetworkManager
+ip link
+```
+```
+passwd
+```
+Configure bootloader
+```
+ls /sys/firmware/efi
+lsblk -f
+pacman -S grub efibootmgr
+grub-install --target=x86_64-efi --efi-directory=<boot mount directory> --bootloader-id=GRUB --recheck
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB --recheck
+grub-mkconfig -o /boot/grub/grub.cfg
+```
+Exit and unmount then reboot
+```
+exit
+umount -R /mnt
+reboot
+```
+###
+KDE Setup after reboot and installation media is removed:
+```
+sudo pacman -Syu
+sudo pacman -S plasma desktop
+```
+
