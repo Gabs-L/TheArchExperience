@@ -19,11 +19,8 @@ xorg-xwayland
 pipewire
 wireplumber
 pipewire-pulse
-wpctl
 brightnessctl
-yambar
 htop
+firefox
 ```
-after rebooting from live install media:
-```
-pacman -Syu  
+
