@@ -224,6 +224,7 @@ n
 w
 ```
 ```
+lsblk
 mkfs.fat -F32 /dev/sda1
 mkfs.ext4 /dev/sda2
 
@@ -231,8 +232,8 @@ mount /dev/sda2 /mnt
 mkdir -p /mnt/boot
 mount /dev/sda1 /mnt/boot
 pwd
-ls /mnt
-ls /mnt/boot
+ls /mnt  # countains boot
+ls /mnt/boot  # empty
 ```
 ```
 pacstrap -K /mnt base linux linux-firmware
@@ -240,6 +241,7 @@ genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
 ```
 ```
+#   once in chroot
 ln -sf /usr/share/zoneinfo/America/Vancouver /etc/localtime
 hwclock --systohc
 locale-gen
@@ -247,9 +249,19 @@ echo "LANG=en_US.UTF-8" > /etc/locale.conf
 echo "KEYMAP=us" > /etc/vconsole.conf
 echo "<desiredhostname>" > /etc/hostname
 ```
+verify (if needed)
+```
+readlink /etc/localtime
+timedatectl
+locale
+hwclock --show
+cat /etc/locale.conf
+cat /etc/vconsole.conf
+cat /etc/hostname
+```
 ```
 pacman -S networkmanager
-systemctl enable --now NetworkManager
+systemctl enable NetworkManager
 ip link
 ```
 ```
@@ -257,10 +269,8 @@ passwd
 ```
 Configure bootloader
 ```
-ls /sys/firmware/efi
 lsblk -f
 pacman -S grub efibootmgr
-grub-install --target=x86_64-efi --efi-directory=<boot mount directory> --bootloader-id=GRUB --recheck
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB --recheck
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
@@ -273,7 +283,6 @@ reboot
 ###
 KDE Setup after reboot and installation media is removed:
 ```
-sudo pacman -Syu
-sudo pacman -S plasma desktop
+sudo pacman -Syu plasma-desktop plasma-nm plasma-pa power-profiles-daemon alacritty kwin
 ```
 
