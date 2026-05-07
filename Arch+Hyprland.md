@@ -268,3 +268,12 @@ browser.newtabpage.activity-stream.feeds.telemetry -> false
 browser.newtabpage.activity-stream.telemetry -> false
 datareporting.healthreport.uploadEnabled -> false
 browser.newtabpage.activity-stream.feeds.section.topstories -> false
+
+
+todo:
+-screenshots
+-waybar
+-OBS
+-fastfetch config
+-hyprlock
+-github -> dotfiles
