@@ -7,12 +7,14 @@ _(I didn't know about archinstall or how to copy github dotfiles)_
 setfont ter-124b
 timedatectl set-ntp true
 ```
+
 check if time is synced, and internet connection is good:
 ```
 timedatectl status
 ip link
 ping archlinux.org
 ```
+
 ## === partitioning ===
 ```
 lsblk
@@ -33,6 +35,7 @@ enter    # first sector (press Enter)
 enter    # last sector (press Enter, use rest of disk)
 w        # write changes (BE SURE BEFORE WRITTING CHANGES)
 ```
+
 ## === format partitions ===
 ```
 lsblk
@@ -54,12 +57,14 @@ mount /dev/[efi_partition(sdx1)] /mnt/boot
 ls /mnt
 ls /mnt/boot
 ```
+
 ## === install base system ===
 ```
 pacstrap -K /mnt base linux linux-firmware intel-ucode
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
 ```
+
 ## === setting time and base config ===
 ```
 ln -sf /usr/share/zoneinfo/America/Vancouver /etc/localtime
@@ -70,11 +75,13 @@ echo "LANG=en_US.UTF-8" > /etc/locale.conf
 echo "KEYMAP=us" > /etc/vconsole.conf
 echo "[desiredhostname]" > /etc/hostname
 ```
+
 ## === install network manager ===
 ```
 pacman -Syu networkmanager sudo nvim
 systemctl enable NetworkManager
 ```
+
 ## === add a user ===
 ```
 useradd -m -G wheel,video,audio,render,input -s /bin/bash [username]
@@ -97,12 +104,14 @@ lsblk -f
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB --recheck
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
+
 ## === unmount and reboot ===
 ```
 exit
 umount -R /mnt
 reboot
 ```
+
 ## _Post Reboot_
 **Some useful bits/bobs**
 ## === reenter chroot from install media ===
@@ -142,11 +151,13 @@ wofi
 thunar
 tumbler
 ```
+
 === greeter ===
 ```
 lightdm
 lightdm-gtk-greeter
 ```
+
 === basic desktop portals ===
 ```
 sudo pacman -Syu
@@ -155,6 +166,7 @@ xdg-desktop-portal-gtk
 xdg-desktop-portal-hyprland
 xorg-xwayland
 ```
+
 === audio ===
 ```
 pipewire
@@ -167,21 +179,25 @@ sof-firmware
 // alsa-ucm-conf
 alsa-utils
 ```
+
 === monitor/screen ===
 ```
 brightnessctl
 grim
 slurp
 ```
+
 === other ===
 ```
 base-devel
 wl-clipboard
 ```
+
 === apps ===
 ```
 firefox
 ```
+
 ## Config Files 
 *I recommend rebooting here before making and setting all the config files
 === hyprland ===
@@ -190,7 +206,8 @@ mkdir -p ~/.config/hypr
 cp /usr/share/hypr/hyprland.conf ~/.config/hypr/hyprland.conf
 nvim ~/.config/hypr/hyprland.conf
 ```
-=== lightdm ==
+
+=== lightdm ==  
 Under [Seat:*] 
 ```
 sudo nvim /etc/lightdm/lightdm.conf
@@ -198,6 +215,7 @@ sudo nvim /etc/lightdm/lightdm.conf
 	user-session=hyprland
 sudo systemctl enable lightdm
 ```
+
 == audio ===
 ```
 systemctl --user enable --now pipewire.service pipewire-pulse.service wireplumber.service
