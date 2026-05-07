@@ -277,3 +277,4 @@ todo:
 -fastfetch config
 -hyprlock
 -github -> dotfiles
+-hyprpaper
