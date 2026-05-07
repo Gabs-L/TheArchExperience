@@ -1,7 +1,7 @@
 # Arch + Hyprland From Scratch 👺
 _(I didn't know about archinstall or how to copy github dotfiles)_
 
-## _T450s Arch+Hyprland:_
+## _Arch+Hyprland on T450s:_
 ## === initial setup ===
 ```
 setfont ter-124b
