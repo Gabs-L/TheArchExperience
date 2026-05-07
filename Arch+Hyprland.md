@@ -140,6 +140,9 @@ hyprland
 waybar
 wofi
 thunar
+```
+=== greeter ===
+```
 lightdm
 lightdm-gtk-greeter
 ```
@@ -155,17 +158,18 @@ xorg-xwayland
 ```
 pipewire
 pipewire-pulse
-pipewire-alsa
-pipewire-jack
+// pipewire-alsa
+// pipewire-jack
 wireplumber
 sof-firmware
-alsa-firmware
-alsa-ucm-conf
+// alsa-firmware
+// alsa-ucm-conf
 alsa-utils
 ```
 === monitor ===
+```
 brightnessctl
-
+```
 === other ===
 ```
 base-devel
@@ -174,7 +178,33 @@ base-devel
 ```
 firefox
 ```
+## Config Files 
+*I recommend rebooting here before making and setting all the config files
+=== hyprland ===
+```
+mkdir -p ~/.config/hypr
+cp /usr/share/hypr/hyprland.conf ~/.config/hypr/hyprland.conf
+nvim ~/.config/hypr/hyprland.conf
+```
+=== lightdm ==
+Under [Seat:*] 
+```
+sudo nvim /etc/lightdm/lightdm.conf
+	greeter-session=lightdm-gtk-greeter
+	user-session=hyprland
+sudo systemctl enable lightdm
+```
+== audio ===
+```
+systemctl --user enable --now pipewire.service pipewire-pulse.service wireplumber.service
+alsamixer
+```
+run ``` aplay -l ``` to list audio devices
 
+## Cleanup
+```
+sudo pacman -Rs $(pacman -Qdtq)
+```
 
 
 To format later, but here is my learning doc on how to install arch+hyprland:
