@@ -201,6 +201,43 @@ firefox
 
 ## Config Files 
 *I recommend rebooting here before making and setting all the config files
+=== fastfetch ===
+```
+fastfetch --gen-config
+~/.config/fastfetch/config.jsonc
+```
+```
+"modules": [
+    "title",
+    "separator",
+    "os",
+    "host",
+    "kernel",
+    "uptime",
+    {
+        "type": "cpu",
+        "temp": true,
+        "format": "{1} ({3}) @ {7}" 
+    },
+    {
+        "type": "cpuusage",
+        "format": "{1}" 
+    },
+    {
+        "type": "gpu",
+        "temp": true,
+        "format": "{1} {2} @ {3}"
+    },
+    {
+        "type": "gpuusage",
+        "format": "{1}"
+    },
+    "memory",
+    "break",
+    "colors"
+]
+```
+
 === hyprland ===
 ```
 mkdir -p ~/.config/hypr
