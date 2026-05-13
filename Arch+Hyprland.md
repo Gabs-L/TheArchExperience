@@ -278,3 +278,16 @@ todo:
 -hyprlock
 -github -> dotfiles
 -hyprpaper
+
+## Hyprland Shortcuts (me-edition)
+general {
+	gaps_in = 5
+	gap_out = 5
+	border_size = 1
+	resize_on_border = true
+}
+
+bind = $mainMod, RETURN, exec,  $terminal
+bind = $mainMod, Q, killactive,
+bind = $mainMod, E, $fileManager
+bindl = $mainMod, mainMod_L, exec, pkill [menu] || $menu
