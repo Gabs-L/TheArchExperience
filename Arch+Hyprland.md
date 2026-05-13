@@ -208,7 +208,7 @@ cp /usr/share/hypr/hyprland.conf ~/.config/hypr/hyprland.conf
 nvim ~/.config/hypr/hyprland.conf
 ```
 [configuration](<https://wiki.hypr.land/Configuring/>)
-
+```
 env = XDG_CURRENT_DESKTOP,Hyprland
 env = XDG_SESSION_TYPE,wayland
 env = XDG_SESSION_DESKTOP,Hyprland
@@ -226,9 +226,7 @@ shadow -> enabled = false
 blur -> enabled = false
 animations -> enabled = false
 touchpad -> natural_scroll = true
-
-bind = , Print, exec grim -g "$(slurp)" - | wl-copy
-
+```
 === lightdm ==  
 Under [Seat:*] 
 ```
@@ -277,23 +275,23 @@ sudo pacman -Rs $(pacman -Qdtq)
 
 ## In Compositor Setup
 ##=== Firefox ===
-media.ffmpeg.vaapi.enabled -> true
-media.ffvpx.enabled -> false
-media.rdd-ffmpeg.enabled -> true
-gfx.webrender.all -> true
-layout.css.font-visibility.standard -> true
-layers.acceleration.force-enabled -> true
-browser.tabs.unloadOnLowMemory -> true
-dom.ipc.processCount -> 4
-browser.low_commit_space_threshold_mb -> 200
-image.mem.decode_on_draw -> true
-extensions.pocket.enabled -> false
+media.ffmpeg.vaapi.enabled -> true  
+media.ffvpx.enabled -> false  
+media.rdd-ffmpeg.enabled -> true  
+gfx.webrender.all -> true  
+layout.css.font-visibility.standard -> true  
+layers.acceleration.force-enabled -> true  
+browser.tabs.unloadOnLowMemory -> true  
+dom.ipc.processCount -> 4  
+browser.low_commit_space_threshold_mb -> 200  
+image.mem.decode_on_draw -> true  
+extensions.pocket.enabled -> false  
 
 --- junk removal: ---
-browser.newtabpage.activity-stream.feeds.telemetry -> false
-browser.newtabpage.activity-stream.telemetry -> false
-datareporting.healthreport.uploadEnabled -> false
-browser.newtabpage.activity-stream.feeds.section.topstories -> false
+browser.newtabpage.activity-stream.feeds.telemetry -> false  
+browser.newtabpage.activity-stream.telemetry -> false  
+datareporting.healthreport.uploadEnabled -> false  
+browser.newtabpage.activity-stream.feeds.section.topstories -> false  
 
 
 todo:
