@@ -291,3 +291,9 @@ bind = $mainMod, RETURN, exec,  $terminal
 bind = $mainMod, Q, killactive,
 bind = $mainMod, E, $fileManager
 bindl = $mainMod, mainMod_L, exec, pkill [menu] || $menu
+
+
+## Waybar
+mkdir -p ~/.config/waybar
+cp /etc/xdg/waybar/config.jsonc ~/.config/waybar/config.jsonc
+cp /etc/xdg/waybar/style.css ~/.config/waybar/style.css
