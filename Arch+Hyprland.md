@@ -143,6 +143,7 @@ but this might not be the case for you. Check which display device you have with
 sudo pacman -Syu
 mesa
 vulkan-intel
+libva-intel-driver
 intel-media-driver
 alacritty
 hyprland
@@ -255,7 +256,10 @@ makepkg -si
 ```
 sudo pacman -S grim slurp wl-clipboard
 ```
-
+=== OBS ===
+```
+sudo pacman -S obs-studio qt6-wayland
+```
 ## Cleanup
 ```
 sudo pacman -Rs $(pacman -Qdtq)
