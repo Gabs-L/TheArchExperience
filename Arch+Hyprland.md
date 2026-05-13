@@ -260,6 +260,16 @@ sudo pacman -S grim slurp wl-clipboard
 ```
 sudo pacman -S obs-studio qt6-wayland
 ```
+
+=== webcams ===
+```
+v4l2-ctl --list-devices
+sudo pacman -S usbutils
+sudo dmesg -w
+echo -1 | sudo tee /sys/bus/usb/devices/usb*/power/autosuspend
+```
+* Note the echo is TEMPORARY, do something with udev to make it permanent :\
+
 ## Cleanup
 ```
 sudo pacman -Rs $(pacman -Qdtq)
