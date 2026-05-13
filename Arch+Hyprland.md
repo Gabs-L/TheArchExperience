@@ -237,12 +237,24 @@ sudo nvim /etc/lightdm/lightdm.conf
 sudo systemctl enable lightdm
 ```
 
-== audio ===
+=== audio ===
 ```
 systemctl --user enable --now pipewire.service pipewire-pulse.service wireplumber.service
 alsamixer
 ```
 run ``` aplay -l ``` to list audio devices
+
+=== AUR / yay ===
+```
+sudo pacman -S --needed base-devel git
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+```
+=== screenshots ===
+```
+sudo pacman -S grim slurp wl-clipboard
+```
 
 ## Cleanup
 ```
@@ -272,7 +284,6 @@ browser.newtabpage.activity-stream.feeds.section.topstories -> false
 
 todo:
 -screenshots
--waybar
 -OBS
 -fastfetch config
 -hyprlock
@@ -291,9 +302,10 @@ bind = $mainMod, RETURN, exec,  $terminal
 bind = $mainMod, Q, killactive,
 bind = $mainMod, E, $fileManager
 bindl = $mainMod, mainMod_L, exec, pkill [menu] || $menu
+bind = $mainMod SHIFT_L, s, exec, grim -g "$(slurp)" - | wl-copy --type image/png
 
 
-## Waybar [Athena dotfiles](https://github.com/haikal-hakim/athena/tree/main)
+## [Waybar](https://github.com/Alexays/Waybar/wiki/Configuration) [Athena dotfiles](https://github.com/haikal-hakim/athena/tree/main)
 mkdir -p ~/.config/waybar
 cp /etc/xdg/waybar/config.jsonc ~/.config/waybar/config.jsonc
 cp /etc/xdg/waybar/style.css ~/.config/waybar/style.css
