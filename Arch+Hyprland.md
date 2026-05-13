@@ -201,7 +201,7 @@ firefox
 
 ## Config Files 
 *I recommend rebooting here before making and setting all the config files
-=== fastfetch ===
+=== fastfetch === [modules](https://github.com/fastfetch-cli/fastfetch/wiki/Support+Status#available-modules)
 ```
 fastfetch --gen-config
 ~/.config/fastfetch/config.jsonc
