@@ -293,7 +293,7 @@ bind = $mainMod, E, $fileManager
 bindl = $mainMod, mainMod_L, exec, pkill [menu] || $menu
 
 
-## Waybar
+## Waybar [Athena dotfiles](https://github.com/haikal-hakim/athena/tree/main)
 mkdir -p ~/.config/waybar
 cp /etc/xdg/waybar/config.jsonc ~/.config/waybar/config.jsonc
 cp /etc/xdg/waybar/style.css ~/.config/waybar/style.css
