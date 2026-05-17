@@ -35,6 +35,7 @@ fi
 
 # 3. Automated Partitioning with fdisk
 echo "Partitioning $DRIVE..."
+wipefs -a "$DRIVE"
 fdisk "$DRIVE" <<EOF
 g
 n
