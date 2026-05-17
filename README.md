@@ -294,4 +294,7 @@ exit
 umount -R /mnt
 reboot
 ```
-
+### Revisiting after making the others andd getting a bit more comfy with the CLI
+I decided that I'm a really long ways away from being able to make my own fully slushed out WM/DE/Compositor setup so I tried a couple premade dots to get some inspiration/experience editing dotfiles myself.
+Here are some dots I've tried:
+[HyDE](<https://github.com/HyDE-Project/HyDE>) - 
