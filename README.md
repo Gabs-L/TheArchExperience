@@ -295,7 +295,7 @@ umount -R /mnt
 reboot
 ```
 ### Revisiting after making the others andd getting a bit more comfy with the CLI
-
+# Github Installation
 Typing all the commands each time can get a little annoying so I've automated it with shell scripts.
 here's how to run them:
 first connect to internet. if wireless follow:
