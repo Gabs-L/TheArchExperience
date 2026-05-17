@@ -112,7 +112,7 @@ umount -R /mnt
 reboot
 ```
 
-## _Post Reboot_
+# _Post Reboot_
 **Some useful bits/bobs**
 ## === reenter chroot from install media ===
 first shutdown pc, and boot back into install media
