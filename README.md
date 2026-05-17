@@ -318,6 +318,9 @@ curl -L https://raw.githubusercontent.com/Gabs-L/TheArchExperience/main/install.
 curl -L https://raw.githubusercontent.com/Gabs-L/TheArchExperience/main/chroot.sh -o chroot.sh
 ```
 ```
+ls -lh
+```
+```
 chmod +x install.sh
 ./install.sh
 ```
