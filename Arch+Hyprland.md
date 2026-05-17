@@ -78,7 +78,7 @@ echo "[desiredhostname]" > /etc/hostname
 
 ## === install network manager ===
 ```
-pacman -Syu networkmanager sudo nvim
+pacman -Syu networkmanager sudo nvim grub
 systemctl enable NetworkManager
 ```
 
@@ -92,7 +92,7 @@ EDITOR=nvim visudo
 
 ## === clean boot manager ===
 ```
-pacman -S grub efibootmgr
+pacman -S efibootmgr
 efibootmgr -v
 efibootmgr -b [boot_option_to_remove] -B
 ```
