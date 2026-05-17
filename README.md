@@ -314,8 +314,8 @@ ping archinux.org
 ```
 Connect to the github repo soo you can run the thingies
 ```
-curl -L https://raw.githubusercontent.com/Gabs-L/TheArchExperience/main/install.sh
-curl -L https://raw.githubusercontent.com/Gabs-L/TheArchExperience/main/chroot.sh
+curl -L https://raw.githubusercontent.com/Gabs-L/TheArchExperience/main/install.sh -o install.sh
+curl -L https://raw.githubusercontent.com/Gabs-L/TheArchExperience/main/chroot.sh -o chroot.sh
 ```
 ```
 chmod +x install.sh
