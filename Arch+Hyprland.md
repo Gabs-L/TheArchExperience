@@ -76,9 +76,9 @@ echo "KEYMAP=us" > /etc/vconsole.conf
 echo "[desiredhostname]" > /etc/hostname
 ```
 
-## === install network manager ===
+## === install network manager and other dependencies ===
 ```
-pacman -Syu networkmanager sudo nvim grub
+pacman -Syu networkmanager sudo grub efibootmgr nvim
 systemctl enable NetworkManager
 ```
 
@@ -92,7 +92,6 @@ EDITOR=nvim visudo
 
 ## === clean boot manager ===
 ```
-pacman -S efibootmgr
 efibootmgr -v
 efibootmgr -b [boot_option_to_remove] -B
 ```
