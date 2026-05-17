@@ -295,6 +295,29 @@ umount -R /mnt
 reboot
 ```
 ### Revisiting after making the others andd getting a bit more comfy with the CLI
-I decided that I'm a really long ways away from being able to make my own fully slushed out WM/DE/Compositor setup so I tried a couple premade dots to get some inspiration/experience editing dotfiles myself.
-Here are some dots I've tried:
-[HyDE](<https://github.com/HyDE-Project/HyDE>) - 
+
+Typing all the commands each time can get a little annoying so I've automated it with shell scripts.
+here's how to run them:
+first connect to internet. if wireless follow:
+```
+iwctl
+device list                             # Find your Wi-Fi interface (usually wlan0)
+station wlan0 scan                      # Scan the room for Wi-Fi routers
+station wlan0 get-networks              # List all available Wi-Fi networks
+station wlan0 connect SSID_NAME         # Replace with your actual Wi-Fi name
+```
+*If your Wi-Fi requires a password, it will prompt you securely. Once connected, type `exit` to return to your normal prompt.*
+
+Verify your network link is active by pinging a public server:
+```
+ping archinux.org
+```
+Connect to the github repo soo you can run the thingies
+```
+curl -L https://raw.githubusercontent.com/Gabs-L/TheArchExperience/main/install.sh
+curl -L https://raw.githubusercontent.com/Gabs-L/TheArchExperience/main/chroot.sh
+```
+```
+chmod +x install.sh
+./install.sh
+```
