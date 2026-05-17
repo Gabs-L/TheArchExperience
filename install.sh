@@ -80,4 +80,4 @@ arch-chroot /mnt /bin/bash /chroot.sh
 rm -f /mnt/chroot.sh
 umount -R /mnt
 
-echo "=== Installation complete! ==="
+echo "=== Installation complete, reboot now! ==="
