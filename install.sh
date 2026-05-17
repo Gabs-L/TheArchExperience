@@ -74,7 +74,7 @@ cp chroot.sh /mnt/chroot.sh
 chmod +x /mnt/chroot.sh
 
 echo "Entering chroot..."
-arch-chroot /mnt /bin/bash /chroot.sh
+arch-chroot /mnt /bin/bash < /mnt/chroot.sh
 
 # 9. Post-Chroot Clean up
 rm -f /mnt/chroot.sh
