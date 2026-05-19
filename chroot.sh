@@ -1,7 +1,7 @@
 set -e
 
 echo "--- Chroot system config ---"
-pacman -Syu --noconfirm networkmanager sudo grub efibootmgr nvim
+pacman -Syu --noconfirm networkmanager sudo grub efibootmgr nvim terminus-font
 systemctl enable NetworkManager
 
 echo "=== Host/Username Setup ==="
@@ -32,7 +32,10 @@ hwclock --systohc
 echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
 locale-gen
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
-echo "KEYMAP=us" > /etc/vconsole.conf
+{
+    echo "KEYMAP=us"
+    echo "FONT=ter-124b"
+} > /etc/vconsole.conf
 echo "$HOSTNAME" > /etc/hostname
 
 echo "--- Configuring GRUB ---"
