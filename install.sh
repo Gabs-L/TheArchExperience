@@ -1,5 +1,5 @@
 set -e
-
+echo "=== [Welcome to Gabs's Auto Arch Install Script] ==="
 echo "=== 1: Live USB Installation ==="
 timedatectl set-ntp true
 timedatectl status
