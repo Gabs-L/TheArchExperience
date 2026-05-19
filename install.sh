@@ -28,7 +28,7 @@ if [[ $CONFIRM != "y" && $CONFIRM != "Y" ]]; then
     exit 1
 fi
 
-echo "Partitioning $DRIVE..."
+echo "--- Partitioning $DRIVE ---"
 wipefs -a "$DRIVE"
 fdisk "$DRIVE" <<EOF
 g
@@ -45,23 +45,23 @@ n
 w
 EOF
 
-echo "Formatting partitions..."
+echo "--- Formatting partitions ---"
 mkfs.fat -F32 "$BOOT_PART"
 mkfs.ext4 -F "$ROOT_PART"
 
-echo "Mounting filesystems..."
+echo "--- Mounting filesystems ---"
 mount "$ROOT_PART" /mnt
 mkdir -p /mnt/boot
 mount "$BOOT_PART" /mnt/boot
 
-echo "Running pacstrap..."
+echo "--- Running pacstrap ---"
 pacstrap -K /mnt base linux linux-firmware intel-ucode
 genfstab -U /mnt >> /mnt/etc/fstab
 
 cp chroot.sh /mnt/chroot.sh
 chmod +x /mnt/chroot.sh
 
-echo "Entering chroot..."
+echo "--- Entering chroot ---"
 arch-chroot /mnt /bin/bash < /mnt/chroot.sh
 
 rm -f /mnt/chroot.sh
