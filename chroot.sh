@@ -18,10 +18,10 @@ echo "=== Password Setup ==="
 useradd -m -G wheel,video,audio,render,input -s /bin/bash "$USERNAME"
 echo ""
 echo "Password for root:"
-passwd root
+passwd root || true
 echo ""
 echo "Password for ($USERNAME):"
-passwd "$USERNAME"
+passwd "$USERNAME" || true
 if [ -f /etc/sudoers ]; then
     sed -i 's/# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
 fi
