@@ -62,7 +62,7 @@ cp chroot.sh /mnt/chroot.sh
 chmod +x /mnt/chroot.sh
 
 echo "--- Entering chroot ---"
-arch-chroot /mnt /bin/bash < /mnt/chroot.sh
+arch-chroot /mnt /chroot.sh
 
 rm -f /mnt/chroot.sh
 umount -R /mnt
