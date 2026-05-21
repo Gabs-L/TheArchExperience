@@ -7,7 +7,7 @@ xdg-desktop-portal xdg-desktop-portal-hyprland xorg-xwayland \
 pipewire pipewire-pulse wireplumber sof-firmware alsa-utils pamixer \
 brightnessctl playerctl grim slurp wl-clipboard polkit-gnome \
 ttf-jetbrains-mono-nerd ttf-liberation \
-firefox mako hyprpaper
+firefox mako hyprpaper git
 
 echo "=== Making Config Files ==="
 mkdir -p ~/.config/hypr
