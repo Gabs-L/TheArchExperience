@@ -329,6 +329,6 @@ chmod +x install.sh
 After reboot and checking the thing works by using sudo to install fastfetch:
 ```
 curl -L https://raw.githubusercontent.com/Gabs-L/TheArchExperience/main/postInstall.sh -o postInstall.sh
-chmod +x postInstall.sh.
+chmod +x postInstall.sh
 ./postInstall.sh
 ```
