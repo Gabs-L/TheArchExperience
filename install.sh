@@ -9,7 +9,8 @@ echo ""
 echo "=== Available Disks ==="
 lsblk -dno NAME,SIZE,MODEL | grep -v "loop"
 echo ""
-read -p "Enter the drive name to install onto: " TARGET_DRIVE
+printf "Enter the drive name to install onto: "
+read TARGET_DRIVE
 
 DRIVE="/dev/$TARGET_DRIVE"
 
