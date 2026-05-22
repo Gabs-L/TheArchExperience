@@ -90,5 +90,6 @@ cat << 'EOF' >> ~/.config/fastfetch.jsonc
 	"Colors"
   ]
 }
+EOF
 
 echo "=== System Configuration Complete! Please reboot ==="
