@@ -55,39 +55,39 @@ cat << 'EOF' > ~/.config/fastfetch/config.jsonc
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
   "modules": [
-	"Title",
-    "Separator",
-	"Host",
-	"Kernel",
-	"Uptime",
-	"Packages",
-	"Shell",
-	"Display",
-	"WM",
-	"TerminalFont",
-  {
+	"title",
+    "separator",
+	"host",
+	"kernel",
+	"uptime",
+	"packages",
+	"shell",
+	"display",
+	"wm",
+	"terminalfont",
+    {
 	  "type": "cpu",
-		"temp": true,
-		"format": "{1} ({3}) @ {7}"
-  },
-  {
-		"type": "cpuusage",
-		"format": "{1}" 
+	  "temp": true,
+	  "format": "{name} @ {freq-max} ({temp})"
+    },
+    {
+	  "type": "cpuusage",
+	  "format": "{avg}" 
 	},
 	{
-    "type": "gpu",
-    "temp": true,
-    "format": "{1} {2} @ {3}"
-  },
-  {
-    "type": "gpuusage",
-    "format": "{1}"
-  },
-  "Memory",
-	"Disk",
-	"Break",
-	"Colors"
-  ]
+      "type": "gpu",
+      "temp": true,
+      "format": "{name} @ {core-clock} ({temp})"
+    },
+    {
+      "type": "gpuusage",
+      "format": "{usage}"
+    },
+      "memory",
+	  "disk",
+	  "break",
+	  "colors"
+    ]
 }
 EOF
 
