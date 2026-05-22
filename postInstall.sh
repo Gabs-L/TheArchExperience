@@ -11,7 +11,7 @@ firefox mako hyprpaper git
 
 echo "=== Making Config Files ==="
 mkdir -p ~/.config/hypr
-cp /usr/share/hyprland/hyprland.conf ~/.config/hypr/hyprland.conf
+cp /usr/share/hypr/hyprland.lua ~/.config/hypr/hyprland.lua
 
 mkdir -p ~/.config/alacritty
 mkdir -p ~/.config/mako
