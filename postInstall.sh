@@ -48,6 +48,47 @@ hl.on("hyprland.start", function()
   hl.exec_cmd("mako")
   hl.exec_cmd("hyprpaper")
 end)
-EOF 
+EOF
+
+echo "--- writing ot fastfetch config ---"
+cat << 'EOF' >> ~/.config/fastfetch.jsonc
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+  "modules": [
+	"Title",
+  "Separator",
+	"Host",
+	"Kernel",
+	"Uptime",
+	"Packages",
+	"Shell",
+	"Display",
+	"WM",
+	"Terminal",
+	"TerminalFont",
+  {
+	  "type": "cpu",
+		"temp": true,
+		"format": "{1} ({3}) @ {7}"
+  },
+  {
+		"type": "cpuusage",
+		"format": "{1}" 
+	},
+	{
+    "type": "gpu",
+    "temp": true,
+    "format": "{1} {2} @ {3}"
+  },
+  {
+    "type": "gpuusage",
+    "format": "{1}"
+  },
+  "Memory",
+	"Disk",
+	"Break",
+	"Colors"
+  ]
+}
 
 echo "=== System Configuration Complete! Please reboot ==="
