@@ -5,10 +5,12 @@ pacman -Syu --noconfirm networkmanager sudo grub efibootmgr nvim terminus-font
 systemctl enable NetworkManager
 
 echo "=== Host/Username Setup ==="
-read -p "Enter Hostname: " HOSTNAME
+printf "Enter Hostname: "
+read HOSTNAME
 HOSTNAME=${HOSTNAME:-howdoyouforgettoputahostname} # Falls back to 'howdoyouforgettoputahostname' if left blank
 
-read -p "Enter Username: " USERNAME
+printf "Enter Username: "
+read USERNAME
 while [[ -z "$USERNAME" ]]; do
     read -p "Username cannot be blank. Enter username: " USERNAME
 done
