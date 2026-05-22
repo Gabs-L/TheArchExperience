@@ -332,3 +332,6 @@ curl -L https://raw.githubusercontent.com/Gabs-L/TheArchExperience/main/postInst
 chmod +x postInstall.sh
 ./postInstall.sh
 ```
+
+
+** Note, if the nvme is in use, it might be because of an active lvm partition on the drive. disable all lvm partitions with ```vgchange -an``` then rerun the script.
