@@ -14,7 +14,7 @@ mkdir -p ~/.config/hypr
 mkdir -p ~/.config/alacritty
 mkdir -p ~/.config/mako
 mkdir -p ~/.config/fastfetch
-cp /usr/share/hyprland/hyprland.lua ~/.config/hypr/hyprland.lua
+cp /usr/share/hypr/hyprland.lua ~/.config/hypr/hyprland.lua
 
 echo "--- writing to alacritty config ---"
 cat << 'EOF' > ~/.config/alacritty/alacritty.toml
