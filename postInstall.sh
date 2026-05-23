@@ -7,14 +7,19 @@ xdg-desktop-portal xdg-desktop-portal-hyprland xorg-xwayland \
 pipewire pipewire-pulse wireplumber sof-firmware alsa-utils pamixer \
 brightnessctl playerctl grim slurp wl-clipboard polkit-gnome \
 ttf-jetbrains-mono-nerd ttf-liberation \
-firefox mako hyprpaper git github-cli
+firefox mako hyprpaper hypridle hyprlock git github-cli
 
 echo "=== Making Config Files ==="
 mkdir -p ~/.config/hypr
 mkdir -p ~/.config/alacritty
 mkdir -p ~/.config/mako
 mkdir -p ~/.config/fastfetch
-cp /usr/share/hypr/hyprland.lua ~/.config/hypr/hyprland.lua
+mkdir -p ~/.config/waybar
+cp /usr/share/hypr/hyprland.lua ~/.config/hypr/
+cp /etc/xdg/waybar/config.jsonc ~/.config/waybar/
+cp /etc/xdg/waybar/style.css ~/.config/waybar/
+touch ~/.config/hypr/hypridle.conf
+touch ~/.config/hypr/hyprlock.conf
 
 echo "--- writing to alacritty config ---"
 cat << 'EOF' > ~/.config/alacritty/alacritty.toml
@@ -109,6 +114,54 @@ cat << 'EOF' > ~/.config/fastfetch/config.jsonc
 	  "break",
 	  "colors"
     ]
+}
+EOF
+
+echo "--- writing to hyprlock config ---"
+cat << 'EOF' > ~/.config/hypr/hyprlock.conf
+background {
+    monitor =
+    path = screenshot
+    blur_passes = 2
+    blur_size = 7
+    noise = 0.0117
+}
+
+input-field {
+    monitor =
+    size = 200, 50
+    outline_thickness = 3
+    dots_size = 0.33 
+    dots_spacing = 0.15 
+    dots_center = true
+    outer_color = rgb(151515)
+    inner_color = rgb(200, 200, 200)
+    font_color = rgb(10, 10, 10)
+    fade_on_empty = true
+    placeholder_text = <i>Input Password...</i>
+    hide_input = false
+    position = 0, -20
+    halign = center
+    valign = center
+}
+label {
+    monitor =
+    text = $TIME
+    color = rgba(200, 200, 200, 1.0)
+    font_size = 55
+    font_family = Noto Sans
+    position = 0, 80
+    halign = center
+    valign = center
+}
+EOF
+
+echo "--- writing to hypridle config ---"
+cat << 'EOF' > ~/.config/hypr/hypridle.conf
+general {
+    lock_cmd = pidof hyprlock || hyprlock
+    before_sleep_cmd = loginctl lock-session
+    after_sleep_cmd = hyprctl dispatch dpms on
 }
 EOF
 
