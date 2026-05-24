@@ -143,11 +143,25 @@ input-field {
     halign = center
     valign = center
 }
+
+# Time Label
 label {
     monitor =
-    text = cmd[update:1000] date +'%H:%M'
+    text = cmd[update:1000] date +'%H:%M:%S'
     color = rgba(200, 200, 200, 1.0)
     font_size = 55
+    font_family = Noto Sans
+    position = 0, 150
+    halign = center
+    valign = center
+}
+
+# Date Label
+label {
+    monitor =
+    text = cmd[update:60000] date +'%d-%m-%Y'
+    color = rgba(200, 200, 200, 1.0)
+    font_size = 25
     font_family = Noto Sans
     position = 0, 80
     halign = center
