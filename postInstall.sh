@@ -145,7 +145,7 @@ input-field {
 }
 label {
     monitor =
-    text = $TIME
+    text = cmd[update:1000] date +'%H:%M'
     color = rgba(200, 200, 200, 1.0)
     font_size = 55
     font_family = Noto Sans
