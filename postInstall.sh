@@ -123,8 +123,8 @@ background {
     monitor =
     path = screenshot
     blur_passes = 2
-    blur_size = 7
-    noise = 0.0117
+    blur_size = 8
+    noise = 0.0125
 }
 
 input-field {
@@ -138,7 +138,6 @@ input-field {
     inner_color = rgb(200, 200, 200)
     font_color = rgb(10, 10, 10)
     fade_on_empty = true
-    placeholder_text = <i>Input Password...</i>
     hide_input = false
     position = 0, -20
     halign = center
@@ -160,8 +159,7 @@ echo "--- writing to hypridle config ---"
 cat << 'EOF' > ~/.config/hypr/hypridle.conf
 general {
     lock_cmd = pidof hyprlock || hyprlock
-    before_sleep_cmd = loginctl lock-session
-    after_sleep_cmd = hyprctl dispatch dpms on
+    after_sleep_cmd = (pidof hyprlock || hyprlock) && hyprctl dispatch dpms on
 }
 EOF
 
