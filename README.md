@@ -337,3 +337,22 @@ chmod +x postInstall.sh
 ** Note, if the nvme is in use, it might be because of an active lvm partition on the drive. disable all lvm partitions with ```vgchange -an``` then rerun the script.
 
 ** NOTE for OBS studio on intelcpu, if it doesn't record, use VAAPI H.264 and ensure the iGPU is the encoding device
+
+GEneral Firefox tips:
+```
+media.ffmpeg.vaapi.enabled: true
+media.ffvpx.enabled: false (Forces use of VAAPI)
+media.rdd-ffmpeg.enabled: true
+gfx.webrender.all: true
+layers.acceleration.force-enabled: true
+
+browser.tabs.unloadOnLowMemory: true
+browser.tabs.loadDivertedInBackground: true (Prevents "lazy" tab loading)
+image.mem.decode_on_draw: true
+
+browser.newtabpage.activity-stream.feeds.telemetry: false
+browser.newtabpage.activity-stream.telemetry: false
+datareporting.healthreport.uploadEnabled: false
+browser.newtabpage.activity-stream.feeds.section.topstories: false
+extensions.pocket.enabled: false
+```
