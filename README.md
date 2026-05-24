@@ -335,3 +335,5 @@ chmod +x postInstall.sh
 
 
 ** Note, if the nvme is in use, it might be because of an active lvm partition on the drive. disable all lvm partitions with ```vgchange -an``` then rerun the script.
+
+** NOTE for OBS studio on intelcpu, if it doesn't record, use VAAPI H.264 and ensure the iGPU is the encoding device
