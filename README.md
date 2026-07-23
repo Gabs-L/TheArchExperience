@@ -310,6 +310,7 @@ station wlan0 connect SSID_NAME         # Replace with your actual Wi-Fi name
 
 Verify your network link is active by pinging a public server:
 ```
+iwconfig
 ping archinux.org
 ```
 Connect to the github repo soo you can run the thingies
