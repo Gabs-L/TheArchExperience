@@ -334,6 +334,9 @@ chmod +x postInstall.sh
 ./postInstall.sh
 ```
 
+*** Note for wireless you will need to use ```nmtui``` to connect to wifi post-install.
+go to "activate a connection" and select desired wireless network.
+
 
 ** Note, if the nvme is in use, it might be because of an active lvm partition on the drive. disable all lvm partitions with ```vgchange -an``` then rerun the script.
 
